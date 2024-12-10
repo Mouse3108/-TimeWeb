@@ -78,7 +78,7 @@ class MasterAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('first_name', 'last_name', 'contact_info', 'show_photo', 'photo')
+            'fields': ('first_name', 'last_name', 'contact_info', 'show_photo', 'photo', 'services')
         }),
     )
 

@@ -13,11 +13,13 @@ class CustomUserAdmin(UserAdmin):
     readonly_fields = ('show_photo',)
 
     def display_photo(self, obj):
-        return format_html('<img src="{}" width="50" />', obj.avatar.url)
+        if obj.avatar:
+            return format_html('<img src="{}" width="50" />', obj.avatar.url)
     display_photo.short_description = 'Мини-аватар'
 
     def show_photo(self, obj):
-        return format_html('<img src="{}" width="200" />', obj.avatar.url)
+        if obj.avatar:
+            return format_html('<img src="{}" width="200" />', obj.avatar.url)
     show_photo.short_description = 'Аватар'
 
     fieldsets = UserAdmin.fieldsets + (('Аватар', {'fields': ('show_photo', 'avatar',)}),)
